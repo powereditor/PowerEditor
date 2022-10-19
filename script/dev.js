@@ -28,9 +28,11 @@ const outputOptions = {
   sourcemap: true,
 };
 async function build() {
-  const bundle = await rollup.rollup(inputOptions);
-  const { code, map } = await bundle.generate(outputOptions);
-  await bundle.write(outputOptions);
+  await rollup.watch({
+    ...inputOptions,
+    output: [outputOptions],
+    watch: { include: "src/**" },
+  });
 }
 build();
-//  rollup.watch({ include: "src/**" });
+//
