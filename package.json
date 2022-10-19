@@ -1,0 +1,42 @@
+{
+  "name": "powereditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./script/dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powereditor/PowerEditor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/powereditor/PowerEditor/issues"
+  },
+  "homepage": "https://github.com/powereditor/PowerEditor#readme",
+  "dependencies": {
+    "prosemirror-model": "^1.18.1",
+    "prosemirror-state": "^1.4.2",
+    "prosemirror-transform": "^1.7.0",
+    "prosemirror-view": "^1.29.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-html": "^1.0.0",
+    "@types/prosemirror-model": "^1.16.2",
+    "@types/prosemirror-state": "^1.3.0",
+    "@types/prosemirror-transform": "^1.4.2",
+    "@types/prosemirror-view": "^1.23.3",
+    "esbuild": "^0.15.11",
+    "rollup": "^3.2.3",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-sass": "^1.12.16",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "sass": "^1.55.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  }
+}
