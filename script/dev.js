@@ -6,7 +6,7 @@ const serve = require("rollup-plugin-serve");
 const html = require("@rollup/plugin-html");
 const sass = require("rollup-plugin-sass");
 const htmlTemplate = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>demo</title><link rel="stylesheet" href="./index.css"></head><body>
-<div id='editor'>测试测试测试<br />测试测试</div><script src='./index.js'></script></body></html>`;
+<div id='editor'></div><script src='./index.js'></script></body></html>`;
 const inputOptions = {
   input: path.join(process.cwd(), "src/index.ts"),
   plugins: [
@@ -17,9 +17,7 @@ const inputOptions = {
     html({ template: () => htmlTemplate }),
     livereload(),
     serve({ open: true, port: 8086, contentBase: "dist" }),
-    sass({
-      output: "dist/index.css",
-    }),
+    sass({ output: "dist/index.css" }),
   ],
 };
 const outputOptions = {
@@ -27,12 +25,8 @@ const outputOptions = {
   format: "esm",
   sourcemap: true,
 };
-async function build() {
-  await rollup.watch({
-    ...inputOptions,
-    output: [outputOptions],
-    watch: { include: "src/**" },
-  });
-}
-build();
-//
+rollup.watch({
+  ...inputOptions,
+  output: [outputOptions],
+  watch: { include: "src/**" },
+});

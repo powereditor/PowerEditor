@@ -1,17 +1,14 @@
 import { Schema, NodeSpec, MarkSpec, DOMOutputSpec } from "prosemirror-model";
-
-const pDOM: DOMOutputSpec = ["p", 0],
-  blockquoteDOM: DOMOutputSpec = ["blockquote", 0],
-  hrDOM: DOMOutputSpec = ["hr"],
-  preDOM: DOMOutputSpec = ["pre", ["code", 0]],
-  brDOM: DOMOutputSpec = ["br"];
+const pDOM: DOMOutputSpec = ["p", 0];
+const blockquoteDOM: DOMOutputSpec = ["blockquote", 0];
+const hrDOM: DOMOutputSpec = ["hr"];
+const preDOM: DOMOutputSpec = ["pre", ["code", 0]];
+const brDOM: DOMOutputSpec = ["br"];
 
 /// [Specs](#model.NodeSpec) for the nodes defined in this schema.
-export const nodes = {
+const nodes = {
   /// NodeSpec The top level document node.
-  doc: {
-    content: "block+",
-  } as NodeSpec,
+  doc: { content: "block+" } as NodeSpec,
 
   /// A plain paragraph textblock. Represented in the DOM
   /// as a `<p>` element.
@@ -127,12 +124,12 @@ export const nodes = {
   } as NodeSpec,
 };
 
-const emDOM: DOMOutputSpec = ["em", 0],
-  strongDOM: DOMOutputSpec = ["strong", 0],
-  codeDOM: DOMOutputSpec = ["code", 0];
+const emDOM: DOMOutputSpec = ["em", 0];
+const strongDOM: DOMOutputSpec = ["strong", 0];
+const codeDOM: DOMOutputSpec = ["code", 0];
 
 /// [Specs](#model.MarkSpec) for the marks in the schema.
-export const marks = {
+const marks = {
   /// A link. Has `href` and `title` attributes. `title`
   /// defaults to the empty string. Rendered and parsed as an `<a>`
   /// element.
@@ -209,8 +206,3 @@ export const marks = {
 /// To reuse elements from this schema, extend or read from its
 /// `spec.nodes` and `spec.marks` [properties](#model.Schema.spec).
 export const schema = new Schema({ nodes, marks });
-
-const schema = new BaseSchema({
-  nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-  marks: schema.spec.marks,
-});
